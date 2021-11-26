@@ -20,6 +20,9 @@ class BlackKey extends StatefulWidget{
 class _BlackKeyState extends State<BlackKey> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData _mediaQueryData = MediaQuery.of(context);
+    double displayWidth = _mediaQueryData.size.width;
+    double displayHeight = _mediaQueryData.size.height;
     return
       InkWell(
           onTap: () {
@@ -30,7 +33,7 @@ class _BlackKeyState extends State<BlackKey> {
           child:
           Container(
 
-              height: 50,
+              height: displayHeight -60,
               decoration: BoxDecoration(color: widget.pressedColor, borderRadius: BorderRadius.circular(5), border: Border.all(color: Colors.blueGrey),),
               child:
               Align(
@@ -39,7 +42,7 @@ class _BlackKeyState extends State<BlackKey> {
                   Text(
                     widget.name,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   )
               )

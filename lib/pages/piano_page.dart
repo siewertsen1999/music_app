@@ -39,6 +39,10 @@ class PianoPage extends StatefulWidget {
     "x","C#","D#","x","f#","g#","a#",
   ];
 
+  final List<String> keys = [
+    "C","C#","D","D#","E","F","F#","G","G#","A","A#","C"
+  ];
+
   PianoPage(this.stream, this.updateStream);
 
   @override
@@ -95,13 +99,40 @@ class _PianoPageState extends State<PianoPage> {
                 ),
               ],
             )),
-        body:
+        body: Container(
+          width: displayWidth,
+            child:
+          GridView.count(
+              childAspectRatio: 0.3,
+              mainAxisSpacing: 1,
+            crossAxisCount: 12,
+              children:
+    List.generate(widget.keys.length, (index) {
+      if (widget.keys[index].substring(1) == "#") {
+        print("${widget.keys[index].substring(1)}");
+        return BlackKey((widget.keys[index]));
+      }
+      else {
+        return WhiteKey(widget.keys[index]);
+      }
+    }))));
+
+    }
+
+}
+
+
+
+
+            /*
         Stack(
             children:[
         Container(
             width: displayWidth,
             alignment: Alignment.center,
             child:
+                
+                
 
             StaggeredGridView.countBuilder(
               scrollDirection: Axis.horizontal,
@@ -154,9 +185,8 @@ class _PianoPageState extends State<PianoPage> {
       // 64 Pads
 
 
-
+*/
 
    // );
 
-  }
-}
+

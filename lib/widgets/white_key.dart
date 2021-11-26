@@ -20,6 +20,9 @@ class WhiteKey extends StatefulWidget{
 class _WhiteKeyState extends State<WhiteKey> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData _mediaQueryData = MediaQuery.of(context);
+    double displayWidth = _mediaQueryData.size.width;
+    double displayHeight = _mediaQueryData.size.height;
     return
       InkWell(
         onTap: () {
@@ -29,7 +32,7 @@ class _WhiteKeyState extends State<WhiteKey> {
     },
     child:
     Container(
-      width: 20,
+      height: displayHeight -60,
       decoration: BoxDecoration(color: widget.pressedColor, borderRadius: BorderRadius.circular(5), border: Border.all(color: Colors.blueGrey),),
       child:
           Align(
